@@ -50,6 +50,7 @@ agent any
       stage('END') {
            steps {
          	 echo 'Hello Artifactory'
+         	  bat'deploy'
          	 script{
          	 	buildInfo.env.capture = true
          		server.upload(uploadSpec)
