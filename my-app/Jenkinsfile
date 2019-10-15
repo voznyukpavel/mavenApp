@@ -39,6 +39,9 @@ agent any
       }
        stage('My stage') {           
            steps {       
+           options {
+                timeout(time: 1, unit: 'HOURS') 
+            }
             echo 'My stage....'              
             echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}" 
                 
@@ -51,6 +54,8 @@ agent any
          	 	buildInfo.env.capture = true
          		server.upload(uploadSpec)
          		echo buildInfo.name
+         		echo buildInfo.number
+         		server.publishBuildInfo(buildInfo)
          	 }
         }  
     }
