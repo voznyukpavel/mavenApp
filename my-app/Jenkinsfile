@@ -1,3 +1,4 @@
+
 pipeline {
 agent any
  stages{
@@ -24,16 +25,13 @@ agent any
 	                 }
 	         }         
            steps {     //           
-            echo 'Deploying....'
+           // echo 'Deploying....'
             rtServer (
     id: 'jfrog',
     url: 'http://localhost:82/artifactory',
-    // If you're using username and password:
     username: 'jenkins',
     password: 'Ufoper66',
-
     bypassProxy: true,
-       
     timeout = 300
 )
         }  
