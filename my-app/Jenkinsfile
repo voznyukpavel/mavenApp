@@ -1,6 +1,6 @@
 
 def server = Artifactory.server('jfrog')
-
+def buildInfo = Artifactory.newBuildInfo()
 def uploadSpec = """{
   "files": [
     {
@@ -47,7 +47,10 @@ agent any
       stage('END') {
            steps {
          	 echo 'Hello Artifactory'
-         	 script{server.upload(uploadSpec)}
+         	 script{
+         	 	buildInfo.env.capture = true
+         		 server.upload(uploadSpec)
+         	 }
         }  
     }
   }
