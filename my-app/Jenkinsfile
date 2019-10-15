@@ -14,17 +14,16 @@ pipeline {
 agent any
  stages{
 	stage('Build') {  
-      
-      steps {               
+      steps {      
+       		 echo 'Building..'           
              bat'compile'
-   		     echo 'Building..'           
            }        
       }     
       stage('Test') {          
-        steps {       
+        steps {     
+            echo 'Testing..'  
         	bat'make check || true'
         	bat'test'
-            echo 'Testing..'           
            }        
        }       
        stage('Deploy') {    
@@ -39,9 +38,10 @@ agent any
         }  
       }
        stage('My stage') {           
-           steps {               
+           steps {       
+            echo 'My stage....'              
             echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}" 
-            echo 'My stage....'           
+                
         }     
     }
       stage('END') {
