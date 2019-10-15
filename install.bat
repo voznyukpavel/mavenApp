@@ -1,2 +1,2 @@
 cd my-app
-mvn install
+mvn install -DskipTests=true
