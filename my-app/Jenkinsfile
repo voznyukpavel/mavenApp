@@ -53,9 +53,4 @@ agent any
   }
 }
  
-
-//node {
-//echo 'Hello Artifactory' 
-//server.upload(uploadSpec)
-//} 
  
