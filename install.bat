@@ -1,1 +1,2 @@
-mvn -f C:\Program Files (x86)\Jenkins\workspace\test61_master install
+cd my-app
+mvn install
