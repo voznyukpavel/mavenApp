@@ -25,13 +25,7 @@ agent any
 	         }         
            steps {     //           
             echo 'Deploying....'
-          rtBuildInfo (
-                    maxBuilds: 1,
-                    maxDays: 2,
-                    doNotDiscardBuilds: ["3"],
-                    deleteBuildArtifacts: true
-                    // Using the Jenkins job's build name and number.
-                )
+
         }  
       }
        stage('My stage') {           
