@@ -1,5 +1,6 @@
 
 def server = Artifactory.server('jfrog')
+
 def uploadSpec = """{
   "files": [
     {
@@ -43,18 +44,21 @@ agent any
             echo 'My stage....'           
         }     
     }
-      stage('END') {           
+      stage('END') {
+      node {
+          echo 'Hello Artifactory'
+          server.upload(uploadSpec)
+      }
            steps {              
             echo 'Built....'        
-         
         }  
     }
   }
 }
  
 
-node {
-echo 'Hello Artifactory' 
-server.upload(uploadSpec)
-} 
+//node {
+//echo 'Hello Artifactory' 
+//server.upload(uploadSpec)
+//} 
  
