@@ -46,7 +46,7 @@ agent any
       stage('END') {           
            steps {              
             echo 'Built....'        
-            server.upload(uploadSpec)   
+           script: server.upload(uploadSpec)   
         }  
     }
   }
