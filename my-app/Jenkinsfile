@@ -27,7 +27,6 @@ agent any
            steps {     //           
             echo 'Deploying....'
           rtBuildInfo (
-                    // Build retention:
                     maxBuilds: 1,
                     maxDays: 2,
                     doNotDiscardBuilds: ["3"],
