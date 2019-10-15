@@ -1,5 +1,13 @@
 
 def server = Artifactory.server('jfrog')
+def uploadSpec = """{
+  "files": [
+    {
+      "pattern": "my-app/target/**.jar",
+      "target": "bazinga-repo/froggy-files"
+    }
+ ]
+}"""
 pipeline {
 agent any
  stages{
