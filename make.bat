@@ -1,1 +1,1 @@
-echo mvn -version
+mvn -version
