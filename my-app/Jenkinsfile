@@ -52,5 +52,6 @@ agent any
   }
 }
  
-  script: server.upload(uploadSpec)   
+
+ server.upload(uploadSpec)   
  
