@@ -4,7 +4,7 @@ def uploadSpec = """{
   "files": [
     {
       "pattern": "my-app/target/**.jar",
-      "target": "bazinga-repo/froggy-files"
+      "target": "Jenkins-integration/"
     }
  ]
 }"""
@@ -44,7 +44,8 @@ agent any
     }
       stage('END') {           
            steps {              
-            echo 'Built....'           
+            echo 'Built....'        
+            server.upload(uploadSpec)   
         }  
     }
   }
