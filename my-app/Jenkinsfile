@@ -1,4 +1,3 @@
-
 def server = Artifactory.server('jfrog')
 def buildInfo = Artifactory.newBuildInfo()
 def uploadSpec = """{
@@ -13,38 +12,37 @@ def uploadSpec = """{
 pipeline {
 agent any
  stages{
-	stage('Build') {  
-      steps {      
-       		 echo 'Building..'           
+	stage('Build'){
+      steps {
+       		 echo 'Building..'
              bat'compile'
            }        
       }     
-      stage('Test') {          
+      stage('Test'){
         steps {     
             echo 'Testing..'  
         	bat'make check || true'
         	bat'test'
-           }        
-       }       
-       stage('Deploy') {    
-       	 when{              
+           }
+       }
+       stage('Deploy'){
+       	 when{
 	        expression {
 	                  currentBuild.result == null || currentBuild.result == 'SUCCESS'
 	                 }
-	         }         
-           steps {               
+	         }
+           steps {
             echo 'Deploying....'
             bat'install'
         }  
       }
-       stage('My stage') {        
+       stage('My stage') {
            options {
                 timeout(time: 1, unit: 'HOURS') 
            }   
-           steps {       
-            echo 'My stage....'              
+           steps {
+            echo 'My stage....'
             echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}" 
-                
         }     
     }
       stage('END') {
