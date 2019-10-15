@@ -46,10 +46,10 @@ agent any
     }
       stage('END') {
      
-           steps {              
+           steps {
            node {
           echo 'Hello Artifactory'
-          server.upload(uploadSpec)
+       script{server.upload(uploadSpec)}
       }       
         }  
     }
