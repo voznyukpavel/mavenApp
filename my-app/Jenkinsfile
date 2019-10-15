@@ -53,5 +53,5 @@ agent any
 }
  
 
- server.upload(uploadSpec)   
+node {echo 'Hello World' } 
  
