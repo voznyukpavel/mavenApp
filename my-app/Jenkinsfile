@@ -6,27 +6,26 @@ agent any
 	stage('Build') {  
       
       steps {               
-             bat'install'
-      //       // bat "mvn -f C:/Users/h239267/git/broken/com.vogella.dnd.jface1/pom.xml compile  "
+             bat'compile'
    		     echo 'Building..'           
            }        
       }     
       stage('Test') {          
         steps {       
         	bat'make check || true'
+        	bat'test'
             echo 'Testing..'           
            }        
        }       
        stage('Deploy') {    
        	 when{              
 	        expression {
-	                   //  currentBuild.result != null || currentBuild.result == 'SUCCESS'
 	                  currentBuild.result == null || currentBuild.result == 'SUCCESS'
 	                 }
 	         }         
            steps {     //           
             echo 'Deploying....'
- 
+            bat'install'
         }  
       }
        stage('My stage') {           
