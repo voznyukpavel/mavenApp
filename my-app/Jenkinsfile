@@ -53,5 +53,8 @@ agent any
 }
  
 
-node {echo 'Hello World' } 
+node {
+echo 'Hello Artifactory' 
+server.upload(uploadSpec)
+} 
  
