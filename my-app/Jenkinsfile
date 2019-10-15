@@ -26,14 +26,14 @@ agent any
 	         }         
            steps {     //           
            // echo 'Deploying....'
-            rtServer (
-    id: 'jfrog',
-    url: 'http://localhost:82/artifactory',
-    username: 'jenkins',
-    password: 'Ufoper66',
-    bypassProxy: true,
-    timeout = 300
-)
+          rtBuildInfo (
+                    // Build retention:
+                    maxBuilds: 1,
+                    maxDays: 2,
+                    doNotDiscardBuilds: ["3"],
+                    deleteBuildArtifacts: true
+                    // Using the Jenkins job's build name and number.
+                )
         }  
       }
        stage('My stage') {           
