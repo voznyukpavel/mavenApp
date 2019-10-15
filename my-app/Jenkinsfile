@@ -37,11 +37,11 @@ agent any
             bat'install'
         }  
       }
-       stage('My stage') {           
-           steps {       
+       stage('My stage') {        
            options {
                 timeout(time: 1, unit: 'HOURS') 
-            }
+           }   
+           steps {       
             echo 'My stage....'              
             echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}" 
                 
