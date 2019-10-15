@@ -50,7 +50,7 @@ agent any
          	 script{
          	 	buildInfo.env.capture = true
          		server.upload(uploadSpec)
-         		echo buildInfo
+         		echo 'buildInfo'
          	 }
         }  
     }
