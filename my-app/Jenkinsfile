@@ -1,5 +1,5 @@
 
-def server = Artifactory.server('my-server-id')
+def server = Artifactory.server('jfrog')
 pipeline {
 agent any
  stages{
