@@ -45,12 +45,12 @@ agent any
         }     
     }
       stage('END') {
-      node {
+     
+           steps {              
+           node {
           echo 'Hello Artifactory'
           server.upload(uploadSpec)
-      }
-           steps {              
-            echo 'Built....'        
+      }       
         }  
     }
   }
