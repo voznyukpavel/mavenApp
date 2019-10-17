@@ -34,7 +34,7 @@ agent any
            steps {
             echo 'Deploying....'
             bat'install'
-        }  //
+        }  
       }
        stage('My stage') {
            options {
