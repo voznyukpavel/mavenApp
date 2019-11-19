@@ -23,6 +23,7 @@ agent any
             echo 'Testing..'  
         	bat'make check || true'
         	bat'test'
+        	
            }
        }
        stage('Deploy'){
